@@ -516,61 +516,7 @@ Monitoring answers: **Is the model and its serving system continuing to behave a
 
 ---
 
-## 10. CI/CD for ML
-
-### CI — Continuous Integration
-CI automates checks whenever code changes are proposed or pushed:
-- Unit tests
-- Code quality/lint checks
-- Data/schema validation where appropriate
-- Build checks
-
-The goal is to catch defects early and consistently.
-
-### CD — Continuous Delivery / Deployment
-CD automates preparing a validated change for release or deploying it. In ML, release automation may involve more than application code because model artifacts, data, metrics, and evaluation gates matter.
-
-### Typical ML CI/CD workflow
-
-```mermaid
-flowchart TD
-    A[Code change / Git push] --> B[CI: tests, lint, validation]
-    B --> C[Run ML pipeline]
-    C --> D[Train candidate model]
-    D --> E[Evaluate model]
-    E --> G{Release criteria met?}
-    G -->|No| X[Stop, report, investigate]
-    G -->|Yes| R[Register approved model]
-    R --> U[Deploy / update endpoint]
-    U --> M[Monitor production]
-```
-
-### Example release gate
-A workflow might require:
-- Tests pass.
-- Input data schema is valid.
-- Model metrics meet a predefined threshold.
-- Required review/approval is completed.
-
-For example, a team may decide that a candidate must meet a minimum validation metric before registration/deployment. The threshold must be selected for the actual problem; “accuracy > 95%” is not universally appropriate.
-
-### Azure ML integration
-Azure ML can be integrated with GitHub Actions or Azure DevOps to automate workflows such as pipeline submission, evaluation, model registration, and deployment. The exact implementation depends on the team's repository, permissions, and release design.
-
-### Why CI/CD matters for ML
-- Repeatable workflows
-- Automated quality checks
-- Less manual deployment work
-- Controlled model releases
-- Traceability of code and model versions
-- Faster, safer updates
-
-### Remember
-CI/CD answers: **How do we automatically test, validate, and release code and ML models in a controlled, repeatable way?**
-
----
-
-# 11. End-to-End Azure ML Lifecycle
+# 10. End-to-End Azure ML Lifecycle
 
 This is the combined picture of all ten topics.
 
