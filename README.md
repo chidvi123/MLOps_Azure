@@ -1,6 +1,5 @@
 # Azure Machine Learning (Azure ML) — Complete MLOps Notes
 
-> **Purpose:** Concise but technically sufficient notes for understanding Azure ML and explaining the workflow during a KT. These are conceptual notes; hands-on Azure subscription access is not assumed.
 
 ---
 
